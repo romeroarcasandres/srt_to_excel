@@ -16,3 +16,6 @@ subs.py
 1. Rename your .srt file to "subtitulos.srt" and save it in the same directory as "subs.py".
 2. Run the "subs.py" script.
 3. The script will produce the "subtitulos.xlsx" file in the same directory.
+
+## License
+This project is governed by the GNU Affero General Public License v3.0. For comprehensive details, kindly refer to the LICENSE file included with this project.
