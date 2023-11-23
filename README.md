@@ -4,6 +4,8 @@ It generates an Excel file with three distinct columns: "Tiempo de entrada", "Ti
 
 The script seamlessly populates each column with the relevant information extracted from the .srt file.
 
+See "subs.png".
+
 ## Requirements:
 Python 3
 
