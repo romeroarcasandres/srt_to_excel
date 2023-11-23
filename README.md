@@ -1,10 +1,12 @@
 # Transfer the contents of a .srt file into an Excel spreadsheet.
 ## Overview
 It generates an Excel file with three distinct columns: "Tiempo de entrada", "Tiempo de salida" and "Texto del subtítulo".
+
 The script seamlessly populates each column with the relevant information extracted from the .srt file.
 
 ## Requirements:
 Python 3
+
 openpyxl library
 
 ## Files
