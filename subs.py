@@ -1,43 +1,43 @@
 import re
 from openpyxl import Workbook
 
-# Función para procesar el contenido del archivo srt
-def procesar_srt(contenido):
+# Function for processing the content of the srt file
+def process_srt(content):
     pat = re.compile(r'(\d+)\s+(\d{2}:\d{2}:\d{2},\d{3}) --> (\d{2}:\d{2}:\d{2},\d{3})\n(.*?)(?=\n\n\d+|\Z)', re.DOTALL)
-    coincidencias = pat.findall(contenido)
-    datos = []
-    for match in coincidencias:
-        _, tiempo_inicio, tiempo_fin, texto = match
-        datos.append({
-            'Tiempo de entrada': tiempo_inicio,
-            'Tiempo de salida': tiempo_fin,
-            'Texto de subtítulo': texto.strip().replace('\n', '\n')  # Sustituir \n por salto de línea manual
+    coincidences = pat.findall(content)
+    data = []
+    for match in coincidences:
+        _, entry_time, exit_time, text = match
+        data.append({
+            'Entry Time': entry_time,
+            'Exit Time': exit_time,
+            'Subtitle Text': text.strip().replace('\n', '\n')  # Replace \n with manual line breaks
         })
-    return datos
+    return data
 
-# Función para escribir datos en un archivo Excel
-def escribir_excel(datos):
-    libro = Workbook()
-    hoja = libro.active
+# Function for writing data to an Excel file
+def write_excel(data):
+    book = Workbook()
+    sheet = book.active
 
-    # Escribir encabezados
-    encabezados = ['Tiempo de entrada', 'Tiempo de salida', 'Texto de subtítulo']
-    hoja.append(encabezados)
+    # Writing headers
+    headers = ['Entry Time', 'Exit Time', 'Subtitle Text']
+    sheet.append(headers)
 
-    # Escribir datos en el archivo Excel
-    for dato in datos:
-        fila = [dato[encabezado] for encabezado in encabezados]
-        hoja.append(fila)
+    # Writing data to the Excel file
+    for dato in data:
+        row = [dato[header] for header in headers]
+        sheet.append(row)
 
-    # Guardar el archivo Excel
-    libro.save('subtitulos.xlsx')
+    # Save the Excel file
+    book.save('subtitulos.xlsx')
 
-# Leer el contenido del archivo srt
-with open('subtitulos.srt', 'r', encoding='utf-8') as archivo_srt:
-    contenido_srt = archivo_srt.read()
+# Read the content of the srt file
+with open('subtitulos.srt', 'r', encoding='utf-8') as srt_file:
+    srt_content = srt_file.read()
 
-# Procesar el contenido del archivo srt
-datos_subtitulos = procesar_srt(contenido_srt)
+# Process the content of the srt file
+data_subtitulos = process_srt(srt_content)
 
-# Escribir datos en el archivo Excel
-escribir_excel(datos_subtitulos)
+# Write data to the Excel file
+write_excel(data_subtitulos)
