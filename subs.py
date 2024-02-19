@@ -30,14 +30,14 @@ def write_excel(data):
         sheet.append(row)
 
     # Save the Excel file
-    book.save('subtitulos.xlsx')
+    book.save('subtitles.xlsx')
 
 # Read the content of the srt file
-with open('subtitulos.srt', 'r', encoding='utf-8') as srt_file:
+with open('subtitles.srt', 'r', encoding='utf-8') as srt_file:
     srt_content = srt_file.read()
 
 # Process the content of the srt file
-data_subtitulos = process_srt(srt_content)
+data_subtitles = process_srt(srt_content)
 
 # Write data to the Excel file
-write_excel(data_subtitulos)
+write_excel(data_subtitles)
