@@ -20,4 +20,4 @@ subs.py
 3. The script will produce the "subtitles.xlsx" file in the same directory.
 
 ## License
-This project is governed by the GNU Affero General Public License v3.0. For comprehensive details, kindly refer to the LICENSE file included with this project.
+This project is governed by the CC BY-NC 4.0 license. For comprehensive details, kindly refer to the LICENSE file included with this project.
